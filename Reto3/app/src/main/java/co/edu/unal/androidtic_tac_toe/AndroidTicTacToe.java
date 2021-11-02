@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AndroidTicTacToeActivity extends AppCompatActivity {
+public class AndroidTicTacToe extends AppCompatActivity {
     // Represents the internal state of the game
     private TicTacToeGame mGame;
     // Buttons making up the board
