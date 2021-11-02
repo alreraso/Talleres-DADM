@@ -92,9 +92,9 @@ public class AndroidTicTacToeActivity extends AppCompatActivity {
         mBoardButtons[location].setEnabled(false);
         mBoardButtons[location].setText(String.valueOf(player));
         if (player == TicTacToeGame.HUMAN_PLAYER)
-            mBoardButtons[location].setTextColor(Color.rgb(0, 200, 0));
+            mBoardButtons[location].setTextColor(Color.rgb(255, 128, 0));
         else
-            mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));
+            mBoardButtons[location].setTextColor(Color.rgb(0, 0, 255));
     }
 
     @Override
