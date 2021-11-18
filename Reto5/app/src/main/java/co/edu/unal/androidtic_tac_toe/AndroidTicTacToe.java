@@ -137,8 +137,6 @@ public class AndroidTicTacToe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mGame= new TicTacToeGame();
         setContentView(R.layout.activity_main);
-
-        mGame = new TicTacToeGame();
         mBoardView = (BoardView) findViewById(R.id.board);
         mBoardView.setGame(mGame);
         mBoardView.setOnTouchListener(mTouchListener);
