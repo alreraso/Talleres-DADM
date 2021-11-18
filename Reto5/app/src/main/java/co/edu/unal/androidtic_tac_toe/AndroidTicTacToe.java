@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -33,6 +34,9 @@ public class AndroidTicTacToe extends AppCompatActivity {
     static final int DIALOG_QUIT_ID = 1;
     private BoardView mBoardView;
 
+    MediaPlayer mHumanMediaPlayer;
+    MediaPlayer mComputerMediaPlayer;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -56,6 +60,19 @@ public class AndroidTicTacToe extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mHumanMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.jump);
+        mComputerMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pacman);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHumanMediaPlayer.release();
+        mComputerMediaPlayer.release();
     }
 
     @Override
@@ -202,6 +219,7 @@ public class AndroidTicTacToe extends AppCompatActivity {
 
     private boolean setMove(char player, int location) {
         if (mGame.setMove(player, location)) {
+            mHumanMediaPlayer.start();
             mBoardView.invalidate(); // Redraw the board
             return true;
         }
