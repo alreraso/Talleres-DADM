@@ -181,11 +181,13 @@ public class AndroidTicTacToe extends AppCompatActivity {
                     mInfoTextView.setText("It's Android's turn.");
                     int move = mGame.getComputerMove();
                     setMove(TicTacToeGame.COMPUTER_PLAYER, move);
+                    mComputerMediaPlayer.start();
                     winner = mGame.checkForWinner();
 
                 }
                 if (winner == 0) {
                     mInfoTextView.setText("It's your turn.");
+                    mHumanMediaPlayer.start();
                 }
                 else if (winner == 1)
                 {
@@ -217,7 +219,6 @@ public class AndroidTicTacToe extends AppCompatActivity {
 
     private boolean setMove(char player, int location) {
         if (mGame.setMove(player, location)) {
-            mHumanMediaPlayer.start();
             mBoardView.invalidate(); // Redraw the board
             return true;
         }
