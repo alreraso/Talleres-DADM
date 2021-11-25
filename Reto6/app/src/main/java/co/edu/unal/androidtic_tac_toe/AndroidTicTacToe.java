@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -233,24 +232,10 @@ public class AndroidTicTacToe extends AppCompatActivity {
             if(!GameOver && setMove(TicTacToeGame.HUMAN_PLAYER,pos)){
                 int winner = mGame.checkForWinner();
                 if (winner == 0 ) {
-                    final Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Do something after 5s = 5000ms
-                            int move = mGame.getComputerMove();
-                            setMove(TicTacToeGame.COMPUTER_PLAYER, move);
-                            mComputerMediaPlayer.start();
-                            mBoardView.invalidate();
-                        }
-                    }, 2000);
-                    mInfoTextView.setText("It's Android's turnTurno de Android.");
-                    winner = mGame.checkForWinner();
-                }if (winner == 0 ) {
-                    mInfoTextView.setText("Turno de Android.");
                     int move = mGame.getComputerMove();
                     setMove(TicTacToeGame.COMPUTER_PLAYER, move);
                     mComputerMediaPlayer.start();
+                    mInfoTextView.setText("Turno de Android.");
                     winner = mGame.checkForWinner();
                 }
                 if (winner == 0) {
