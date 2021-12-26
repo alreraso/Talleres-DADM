@@ -1,10 +1,14 @@
 package com.example.reto8alrramirezso;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DevelopBD extends SQLiteOpenHelper {
     private static final String NOMBRE_BD = "sql_rene_BD_reto8";
@@ -32,5 +36,17 @@ public class DevelopBD extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO EMPRESAS VALUES('"+nombre+"','"+url+"','"+telefono+"','"+email+"','"+produc+"','"+clasificacion+"')");
             db.close();
         }
+    }
+
+    public List<EmpresaModelo> showEmpresas(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM EMPRESAS",null);
+        List<EmpresaModelo> empresas = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                empresas.add(new EmpresaModelo(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5))); // ,R.id.imageView));
+            }while(cursor.moveToNext());
+        }
+        return empresas;
     }
 }

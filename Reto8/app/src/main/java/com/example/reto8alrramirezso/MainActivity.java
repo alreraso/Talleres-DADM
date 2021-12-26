@@ -2,6 +2,7 @@ package com.example.reto8alrramirezso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText editNombre,editUrl,editTelefono,editEmail,editProd,editClasificacion;
-    Button btnAgregar;
+    Button btnAgregar, btnShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         editClasificacion = (EditText)findViewById(R.id.editClasificacion);
 
         btnAgregar = (Button)findViewById(R.id.btnAgregar);
+        btnShow = (Button)findViewById(R.id.btnShow);
+
         final DevelopBD developBD = new DevelopBD(getApplicationContext());
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 developBD.agregarEmpresa(editNombre.getText().toString(),editUrl.getText().toString(),editTelefono.getText().toString(),editEmail.getText().toString(),editProd.getText().toString(),editClasificacion.getText().toString());
                 Toast.makeText(getApplicationContext(),"AGREGADA CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mostrarEmpresa = new Intent(getApplicationContext(),EmpresaActivity.class);
+                startActivity(mostrarEmpresa);
             }
         });
     }
