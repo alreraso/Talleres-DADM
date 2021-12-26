@@ -2,19 +2,17 @@ package com.example.reto8alrramirezso;
 
 public class EmpresaModelo {
     private String nombre,urlweb,telefono,email,produServ,clasifica;
-    private int imgBuiild;
 
     public EmpresaModelo() {
     }
 
-    public EmpresaModelo(String nombre, String urlweb, String telefono, String email, String produServ, String clasifica){ //  ,int build) {
+    public EmpresaModelo(String nombre, String urlweb, String telefono, String email, String produServ, String clasifica){
         this.nombre = nombre;
         this.urlweb = urlweb;
         this.telefono = telefono;
         this.email = email;
         this.produServ = produServ;
         this.clasifica = clasifica;
-        // this.imgBuiild = build;
     }
 
     public String getNombre() {
@@ -63,13 +61,5 @@ public class EmpresaModelo {
 
     public void setClasifica(String clasifica) {
         this.clasifica = clasifica;
-    }
-
-    public int getImgBuiild() {
-        return imgBuiild;
-    }
-
-    public void setImgBuiild(int imgBuiild) {
-        this.imgBuiild = imgBuiild;
     }
 }

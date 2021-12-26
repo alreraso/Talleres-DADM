@@ -28,13 +28,4 @@ public class EmpresaActivity extends AppCompatActivity {
         recyclerViewEmpresa.setAdapter(adapter);
     }
 
-    /* public List<EmpresaModelo> obtenerEmpresas () {
-        List<EmpresaModelo> empresas = new ArrayList<>();
-        empresas.add(new EmpresaModelo("mobiera","mobiera.com","12345678","mobiera@gmail.com","software","desarrollo de software",R.drawable.build));
-        empresas.add(new EmpresaModelo("mobiera2","mobiera.com","12345678","mobiera@gmail.com","software","desarrollo de software",R.drawable.build));
-        empresas.add(new EmpresaModelo("mobiera3","mobiera.com","12345678","mobiera@gmail.com","software","desarrollo de software",R.drawable.build));
-        empresas.add(new EmpresaModelo("mobiera4","mobiera.com","12345678","mobiera@gmail.com","software","desarrollo de software",R.drawable.build));
-
-        return empresas;
-    } */
 }

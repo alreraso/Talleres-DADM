@@ -51,7 +51,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.emailtv.setText(empresaLista.get(position).getEmail());
         holder.producservtv.setText(empresaLista.get(position).getProduServ());
         holder.clasificaciontv.setText(empresaLista.get(position).getClasifica());
-        holder.buildtv.setImageResource(empresaLista.get(position).getImgBuiild());
+        holder.buildtv.setImageResource(R.drawable.build);
     }
 
     public int getItemCount(){
