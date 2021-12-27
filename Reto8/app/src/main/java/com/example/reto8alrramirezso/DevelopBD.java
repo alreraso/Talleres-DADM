@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +62,22 @@ public class DevelopBD extends SQLiteOpenHelper {
                 modelo.setProduServ(cursor.getString(4));
                 modelo.setClasifica(cursor.getString(5));
             }while(cursor.moveToNext());
+        }
+    }
+
+    public void editarEmpresa(String nombre, String url ,String telefono, String email, String produc,String clasificacion){
+        SQLiteDatabase db = getWritableDatabase();
+        if(db!=null){
+            db.execSQL("UPDATE EMPRESAS SET URLWEB='"+url+"',TELEFONO='"+telefono+"',CORREO='"+email+"',PRODSERV='"+produc+"',CLASIFICACION='"+clasificacion+"' WHERE NOMBRE='"+nombre+"'");
+            db.close();
+        }
+    }
+
+    public void eliminarEmpresa(String nombre){
+        SQLiteDatabase db = getWritableDatabase();
+        if(db!=null){
+            db.execSQL("DELETE FROM EMPRESAS WHERE NOMBRE='"+nombre+"'");
+            db.close();
         }
     }
 }
