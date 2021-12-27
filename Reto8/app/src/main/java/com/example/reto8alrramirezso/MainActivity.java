@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText editNombre,editUrl,editTelefono,editEmail,editProd,editClasificacion;
-    Button btnAgregar, btnShow;
+    Button btnAgregar, btnShow, btnBuscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
         editNombre = (EditText)findViewById(R.id.editNombre);
         editUrl = (EditText)findViewById(R.id.editURL);
         editTelefono = (EditText)findViewById(R.id.editTelefono);
-        editEmail = (EditText)findViewById(R.id.editTelefono);
+        editEmail = (EditText)findViewById(R.id.editEmail);
         editProd = (EditText)findViewById(R.id.editProductos);
         editClasificacion = (EditText)findViewById(R.id.editClasificacion);
 
         btnAgregar = (Button)findViewById(R.id.btnAgregar);
         btnShow = (Button)findViewById(R.id.btnShow);
+        btnBuscar = (Button)findViewById(R.id.btnBuscar);
 
         final DevelopBD developBD = new DevelopBD(getApplicationContext());
 
@@ -44,6 +45,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent mostrarEmpresa = new Intent(getApplicationContext(),EmpresaActivity.class);
                 startActivity(mostrarEmpresa);
+            }
+        });
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EmpresaModelo empresa =  new EmpresaModelo();
+                developBD.buscarEmpresa(empresa,editNombre.getText().toString());
+                editUrl.setText(empresa.getUrlweb());
+                editTelefono.setText(empresa.getTelefono());
+                editEmail.setText(empresa.getEmail());
+                editProd.setText(empresa.getProduServ());
+                editClasificacion.setText(empresa.getClasifica());
             }
         });
     }

@@ -49,4 +49,18 @@ public class DevelopBD extends SQLiteOpenHelper {
         }
         return empresas;
     }
+
+    public void buscarEmpresa(EmpresaModelo modelo, String nombreSearch){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM EMPRESAS WHERE NOMBRE='"+nombreSearch+"'",null);
+        if(cursor.moveToFirst()){
+            do{
+                modelo.setUrlweb(cursor.getString(1));
+                modelo.setTelefono(cursor.getString(2));
+                modelo.setEmail(cursor.getString(3));
+                modelo.setProduServ(cursor.getString(4));
+                modelo.setClasifica(cursor.getString(5));
+            }while(cursor.moveToNext());
+        }
+    }
 }

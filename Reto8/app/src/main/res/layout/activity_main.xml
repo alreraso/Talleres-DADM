@@ -54,12 +54,30 @@
                     android:layout_height="wrap_content"
                     android:text="Nombre" />
 
-                <EditText
-                    android:id="@+id/editNombre"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/btnBuscar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#67AB9F"
+                        android:text="BUSCAR" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView3"
