@@ -71,12 +71,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnEliminar.setOnClickListener(new View.OnClickListener() {
+        btnEliminar.setOnClickListener(new View.OnClickListener() {    //falta agregar el confirmation system y sale
             @Override
             public void onClick(View v) {
                 developBD.eliminarEmpresa(editNombre.getText().toString());
                 Toast.makeText(getApplicationContext(),"ELIMINADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        // aqui iria mi boton de clean si tuviera uno
+        // aqui iria mi boton de filtro por nombre si tuviera uno :'v
+        // aqui iria mi boton de filtro por clasificacion si tuviera uno :'v
     }
 }
