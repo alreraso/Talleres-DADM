@@ -61,7 +61,7 @@
 
                     <EditText
                         android:id="@+id/editNombre"
-                        android:layout_width="wrap_content"
+                        android:layout_width="167dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName" />
@@ -76,7 +76,18 @@
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:backgroundTint="#67AB9F"
-                        android:text="BUSCAR" />
+                        android:text="BSC" />
+                    <Button
+                        android:id="@+id/btnClean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#67AB9F"
+                        android:text="CLR" />
                 </LinearLayout>
 
                 <TextView
@@ -150,6 +161,20 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#67AB9F"
                     android:text="Mostrar" />
+
+                <Button
+                    android:id="@+id/btnFilNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#67AB9F"
+                    android:text="Filtrar Nombre" />
+
+                <Button
+                    android:id="@+id/btnFilCls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#67AB9F"
+                    android:text="Filtrar Clase" />
 
                 <Button
                     android:id="@+id/btnAgregar"

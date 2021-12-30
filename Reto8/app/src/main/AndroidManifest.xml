@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reto8ALRRAMIREZSO">
         <activity
+            android:name=".FiltroClass"
+            android:exported="false" />
+        <activity
+            android:name=".Filtros"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,8 +26,7 @@
         </activity>
         <activity
             android:name=".EmpresaActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

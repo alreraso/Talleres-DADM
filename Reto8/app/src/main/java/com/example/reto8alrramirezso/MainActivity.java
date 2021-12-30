@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editNombre,editUrl,editTelefono,editEmail,editProd,editClasificacion;
-    Button btnAgregar, btnShow, btnBuscar, btnEditar, btnEliminar;
+    Button btnAgregar, btnShow, btnBuscar, btnEditar, btnEliminar,btnLimpiar,btnFilNom,btnFilCls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         btnBuscar = (Button)findViewById(R.id.btnBuscar);
         btnEditar = (Button)findViewById(R.id.btnEdit);
         btnEliminar = (Button)findViewById(R.id.btnEliminar);
+        btnLimpiar = (Button)findViewById(R.id.btnClean);
+        btnFilNom = (Button)findViewById(R.id.btnFilNom);
+        btnFilCls = (Button)findViewById(R.id.btnFilCls);
+
 
         final DevelopBD developBD = new DevelopBD(getApplicationContext());
 
@@ -79,9 +85,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editNombre.setText("");
+                editUrl.setText("");
+                editTelefono.setText("");
+                editEmail.setText("");
+                editProd.setText("");
+                editClasificacion.setText("");
+            }
+        });
 
-        // aqui iria mi boton de clean si tuviera uno
-        // aqui iria mi boton de filtro por nombre si tuviera uno :'v
-        // aqui iria mi boton de filtro por clasificacion si tuviera uno :'v
+        btnFilNom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showFilter = new Intent(getApplicationContext(),Filtros.class);
+                showFilter.putExtra("nombre", editNombre.getText().toString());
+                startActivity(showFilter);
+            }
+        });
+
+        btnFilCls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println(editClasificacion.getText().toString());
+                Intent filterClass = new Intent(getApplicationContext(),FiltroClass.class);
+                filterClass.putExtra("clase", editClasificacion.getText().toString());
+                startActivity(filterClass);
+            }
+        });
+
+
     }
 }

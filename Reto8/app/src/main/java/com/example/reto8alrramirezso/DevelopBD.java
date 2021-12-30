@@ -80,4 +80,29 @@ public class DevelopBD extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+    public List<EmpresaModelo> showEmpresasNombre(String nombre){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM EMPRESAS WHERE NOMBRE='"+nombre+"'",null);
+        List<EmpresaModelo> empresasFil = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                empresasFil.add(new EmpresaModelo(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+            }while(cursor.moveToNext());
+        }
+        return empresasFil;
+    }
+
+    public List<EmpresaModelo> showEmpresasClase(String clase){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM EMPRESAS WHERE CLASIFICACION='"+clase+"'",null);
+        List<EmpresaModelo> filClase = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                filClase.add(new EmpresaModelo(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+            }while(cursor.moveToNext());
+        }
+        System.out.println(filClase.get(0).getUrlweb());
+        return filClase;
+    }
 }
