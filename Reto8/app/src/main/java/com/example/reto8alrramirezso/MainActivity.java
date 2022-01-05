@@ -1,7 +1,10 @@
 package com.example.reto8alrramirezso;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -80,8 +83,24 @@ public class MainActivity extends AppCompatActivity {
         btnEliminar.setOnClickListener(new View.OnClickListener() {    //falta agregar el confirmation system y sale
             @Override
             public void onClick(View v) {
-                developBD.eliminarEmpresa(editNombre.getText().toString());
-                Toast.makeText(getApplicationContext(),"ELIMINADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+                AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
+                dialog.setTitle("Eliminar Empresa");
+                dialog.setMessage("Esta Por borrar una empresa de la lista ¿Esta seguro de esta acción?");
+                dialog.setButton(Dialog.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                dialog.setButton(Dialog.BUTTON_POSITIVE, "Eliminar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        developBD.eliminarEmpresa(editNombre.getText().toString());
+                        Toast.makeText(getApplicationContext(),"ELIMINADO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+                        dialog.getClass();
+                    }
+                });
+                dialog.show();
             }
         });
 
